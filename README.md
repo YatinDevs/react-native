@@ -119,7 +119,7 @@ Expressions in JSX (in Action) :
                 - Flatlist
                 - ScrollView
                 - SafeAreaView
-                - TextInput
+                - TextInput+
                 - StatusBar
 
         - Animations Using react-native-animatable
@@ -203,3 +203,131 @@ When should we use Flatlist or Map ?
         To create a new project, run the following command:
 
                 - npx create-expo-app@latest
+
+                - npx expo start -c
+
+- Packages
+
+      - expo
+      - expo-router
+      - react-native-safe-area-context
+      - react-native-screens
+      - expo-linking
+      - expo-constants
+      - expo-status-bar
+
+- Setup entry point
+
+      - So we can use File based routing with expo-router
+      - Create a new file called `index.tsx` in the root of your project app folder
+      - Add `_layout.tsx` which will be RootLayout Component
+      - In package.json set `"main": "expo-router/entry",`
+      - In app.json `"scheme": "aora",`
+
+  Now we can see `RootLayout` in center but to render `index.tsx`
+
+  There are two ways :
+
+  - `Slot` from expo-router : we can see content of `index.tsx` directly now.
+    Slot just renders the current child route
+    We can wrap it with Header or Footer
+
+  - `Stack` from expo-router : we can see content of `index.tsx` directly when we use
+    `Stack.screen` Wrapped inside `Stack` with name attribute to `index`.
+
+`Link` from expo-router
+
+      Give `href` attribute which contains file name `/profile` in app folder
+      Now we can navigate to that component easily on click
+
+## NativeWind Integration
+
+- Tailwind CSS as scripting language to create a universal style system
+
+React Native CLI
+
+                npm install tailwindcss
+                npm install nativewind
+                npm install --save-dev tailwindcss@3.3.2
+
+Run npx tailwindcss init to create a tailwind.config.js file
+
+        Setup Tailwind CSS :
+
+
+                // tailwind.config.js
+
+                module.exports = {
+                - content: [],
+                + content: ["./App.{js,jsx,ts,tsx}", "./<custom-folder>/**/*.{js,jsx,ts,tsx}"],
+                theme: {
+                extend: {},
+                },
+                plugins: [],
+                }
+
+Add the Babel plugin
+
+                // babel.config.js
+                module.exports = {
+                presets: ['module:metro-react-native-babel-preset'],
+
+                - plugins: ["nativewind/babel"],
+                };
+
+Add `my-app.d.ts` file to resolve error of `className` in `tsx`
+
+      Content inside :
+
+            /// <reference types="nativewind/types" />
+
+Now to use Tailwind with Native wind in `index.tsx`
+
+- Remove StyleSheet and styles
+
+## Added Assets and Constants
+
+- Added a new folder called `assets` to store images and other static assets
+- In Constants to make import easy created `index.js`
+
+      Why Place It Here?
+      Global Access: By placing assets.d.ts in the root, TypeScript will recognize the declarations across your entire project.
+
+            // assets.d.ts
+            declare module "*.png" {
+            const value: string;
+            export default value;
+            }
+
+Always change `tsconfig.json` and add newly created configuration files like
+`assets.d.ts` and `my-app.d.ts`
+
+## Creating Auth Pages
+
+Create a folder `(auth)` inside `app` folder
+
+- Inside `(auth)` create new `AuthLayout` as auth screen and onboardin doesnt have `bottom navbars`
+
+- create `sign-in.tsx` and `sign-up.tsx` files.
+
+Create a folder `(tabs)` inside `app` folder
+
+- Inside `(tabs)` create `TabLayout` as this screens will have `bottom navs` or `Tabs`
+
+- create `home.tsx` and `profile.tsx` files and all which contains `Tabs`.
+
+Create a folder `search` inside `app` folder
+
+- Inside it `[query].tsx` To show dynamic searches
+
+### Setting Up Bottom Tabs folder
+
+- import `Tabs, Redirect` from `expo-router`
+
+      Inside `Tabs`  add `Tabs.Screen` with name of file to show default `home` at moment
+
+      Below will be rest folder in `Tabs` named `create` , ` profile` and `bookmark`
+
+- modify some `Tabs` title and icons and beautify it
+
+         options={}
