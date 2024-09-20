@@ -331,3 +331,14 @@ Create a folder `search` inside `app` folder
 - modify some `Tabs` title and icons and beautify it
 
          options={}
+
+> So Far we have achieved :
+
+        Introduction
+        Components Review
+        Setup
+        NativeWind Integration
+        Added Assets and Constants
+        Creating Auth Pages
+        Creating Search Dynamic folders
+        Setting Up Bottom Tabs folders
