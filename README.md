@@ -342,3 +342,38 @@ Create a folder `search` inside `app` folder
         Creating Auth Pages
         Creating Search Dynamic folders
         Setting Up Bottom Tabs folders
+
+### OnBoarding Screens
+
+- Most outside view should be : SafeAreaView
+- Added Scroll View : ScrollView form react-native for all screen size to have content scrollable
+- Created OnBoarding Page with CSS and Images add Custom Button
+
+> Custom Button
+
+- `components` folder -> `CustomButton.tsx`
+
+> StatusBar :
+
+- It is a Self closing component.
+- On Top of screen show device info and everything or we can also hide it.
+- Using `StatusBar` from `react-native` and `expo-status-bar`.
+
+### Using Router
+
+- So to redirect using expo-router
+- we can import `Redirect`, `router` and `Link` according to use case
+- on click to `Auth Screens`
+
+> So Far we have achieved :
+
+        - Introduction
+        - Components Review
+        - Setup
+        - NativeWind Integration
+        - Added Assets and Constants
+        - Creating Auth Pages
+        - Creating Search Dynamic folders
+        - Setting Up Bottom Tabs folders
+        - OnBoarding Screens
+        - Using Router to Auth Screens

@@ -250,8 +250,9 @@ Create a folder `search` inside `app` folder
 
 > StatusBar :
 
-- It is a Self closing component
-- On Top of screen show device info and everything or we can also hide it
+- It is a Self closing component.
+- On Top of screen show device info and everything or we can also hide it.
+- Using `StatusBar` from `react-native` and `expo-status-bar`.
 
 ### Using Router
 
@@ -271,3 +272,25 @@ Create a folder `search` inside `app` folder
         - Setting Up Bottom Tabs folders
         - OnBoarding Screens
         - Using Router to Auth Screens
+
+> Creating Custom Input Form Field
+
+- We can use `TextInput` from `react-native` to create input field
+- We can use `View` to wrap it and add styles
+
+> Sign In and Sign Up components
+
+> So Far we have achieved :
+
+        - Introduction
+        - Components Review
+        - Setup
+        - NativeWind Integration
+        - Added Assets and Constants
+        - Creating Auth Pages
+        - Creating Search Dynamic folders
+        - Setting Up Bottom Tabs folders
+        - OnBoarding Screens
+        - Using Router to Auth Screens
+        - Custom InputField
+        - SignIn and SignUp UI
